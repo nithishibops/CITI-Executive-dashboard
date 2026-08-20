@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1.0">
+<meta name="description" content="Citi-inspired executive banking analytics dashboard.">
+<title>Citi Executive Analytics Dashboard</title>
+<link rel="stylesheet" href="style.css?v=1.0.0">
+<script src="vendor/plotly.min.js?v=1.0.0"></script>
+</head>
+<body>
+<div class="app">
+<aside class="sidebar">
+  <div class="brand"><div class="brand-word">citi<span>⌒</span></div><small>EXECUTIVE ANALYTICS</small></div>
+  <div class="nav-title">DASHBOARD</div>
+  <button class="nav-item active"><span>◫</span><div><b>Executive Overview</b><small>Financial performance</small></div></button>
+  <div class="sidebar-card"><span>2025 HIGHLIGHT</span><strong>$85.2B</strong><small>Revenue</small><p>Record revenue across Citi's five businesses.</p></div>
+  <div class="sidebar-foot"><b>PORTFOLIO DASHBOARD</b><p>Built from the supplied workbook. Not affiliated with Citigroup.</p></div>
+</aside>
+<main>
+<header class="topbar">
+  <div><p class="eyebrow">BANKING • FINANCIAL PERFORMANCE • 2021–2025</p><h1>Citi Executive Overview</h1><p class="subtitle">A single-page view of scale, profitability, balance sheet composition and business momentum.</p></div>
+  <div class="actions"><a class="btn secondary" href="assets/data/Citi_Executive_Dashboard_Source.xlsx" download>⇩ Source Excel</a><button class="btn secondary" id="fullscreenBtn">⛶ Fullscreen</button></div>
+</header>
+<section class="notice"><b>Portfolio use:</b> figures are taken from the supplied workbook. Verify against official disclosures before formal analytical use.</section>
+<section class="filters"><label><span>YEAR</span><select id="yearFilter"></select></label><div class="filter-summary"><span>CURRENT VIEW</span><b id="currentView">2025 Financial Overview</b></div></section>
+<section class="kpis">
+  <article><span>TOTAL ASSETS</span><strong id="kpiAssets">—</strong><small id="kpiAssetsDelta">—</small></article>
+  <article><span>TOTAL DEPOSITS</span><strong id="kpiDeposits">—</strong><small id="kpiDepositsDelta">—</small></article>
+  <article><span>REVENUE</span><strong id="kpiRevenue">—</strong><small>Reported annual revenue</small></article>
+  <article><span>ROA</span><strong id="kpiROA">—</strong><small>Return on average assets</small></article>
+  <article><span>ROE</span><strong id="kpiROE">—</strong><small>Return on common equity</small></article>
+  <article><span>ROtCE</span><strong id="kpiROTCE">—</strong><small>2025 tangible common equity return</small></article>
+</section>
+<section class="grid">
+  <article class="panel wide"><div class="panel-head"><div><span>BALANCE SHEET TREND</span><h3>Assets and deposits</h3></div><div class="legend-note">USD trillions</div></div><div id="assetsDeposits" class="plot"></div><p class="explain">How Citi's total asset base and deposits changed from 2021 to 2025.</p></article>
+  <article class="panel"><div class="panel-head"><div><span>PROFITABILITY</span><h3>ROA vs ROE trend</h3></div></div><div id="returnTrend" class="plot"></div><p class="explain">ROA measures return relative to average assets; ROE measures return relative to common equity.</p></article>
+  <article class="panel"><div class="panel-head"><div><span>2025 ASSET MIX</span><h3>Where are assets deployed?</h3></div></div><div id="assetMix" class="plot"></div><p class="explain">Loans, trading assets, investments and liquidity-related assets make up the 2025 balance sheet.</p></article>
+  <article class="panel"><div class="panel-head"><div><span>BUSINESS MOMENTUM</span><h3>Selected revenue growth highlights</h3></div></div><div id="segmentGrowth" class="plot"></div><p class="explain">Selected reported growth indicators from the supplied workbook.</p></article>
+  <article class="panel metrics-panel"><div class="panel-head"><div><span>OPERATING PROFILE</span><h3>2025 operating indicators</h3></div></div>
+    <div class="mini-metrics">
+      <div><span>Average loans</span><b id="avgLoans">—</b></div><div><span>Average deposits</span><b id="avgDeposits">—</b></div><div><span>Loan / deposit ratio</span><b id="loanDepositRatio">—</b></div>
+      <div><span>Capital returned</span><b id="capitalReturned">—</b></div><div><span>Direct staff</span><b id="staffCount">—</b></div><div><span>Core businesses</span><b>5</b></div>
+    </div>
+    <div class="commentary"><span>MANAGEMENT HIGHLIGHT</span><p id="managementCommentary">—</p></div>
+  </article>
+</section>
+<footer><span>Executive analytics portfolio dashboard</span><span>Citi-inspired visual theme • Source workbook included</span></footer>
+</main>
+</div>
+<script src="data.js?v=1.0.0"></script>
+<script src="app.js?v=1.0.0"></script>
+</body>
+</html>
